@@ -37,4 +37,13 @@ class WPNonce extends AbstractWPNonce {
 				return $instance;
 		}
 
+		/**
+		 * Generate "are you sure" message.
+		 *
+		 * @param string $action The action.
+		 */
+		public static function generateAYS( $action ) {
+				wp_nonce_ays( $action );
+		}
+
 }

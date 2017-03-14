@@ -77,17 +77,6 @@ abstract class AbstractWPNonce {
 		}
 
 		/**
-		 * Generate nonce.
-		 *
-		 * Generate nonce for use in Wordpress.
-		 *
-		 * Each child class must implement this method, to generate the nonce appropriate to that class.
-		 *
-		 * @return Devbanana\WPNonceWrapper\AbstractWPNonce
-		 */
-		public abstract static function generate();
-
-		/**
 		 * Import current nonce for verification.
 		 *
 		 * You'd use this method on the page where you want to verify the nonce.

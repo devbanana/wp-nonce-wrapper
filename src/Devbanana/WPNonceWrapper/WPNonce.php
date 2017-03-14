@@ -24,9 +24,11 @@ class WPNonce extends AbstractWPNonce {
 		 *
 		 * Wrapper for wp_create_nonce().
 		 *
+		 * @param string $action (optional) Action of this nonce. Defaults to -1.
+		 *
 		 * @return Devbanana\WPNonceWrapper\WPNonce
 		 */
-		public static function generate( $action ) {
+		public static function generate( $action = -1 ) {
 				$instance = new static();
 				$instance->setNonce( wp_create_nonce( $action ) );
 				$instance->setAction( $action );

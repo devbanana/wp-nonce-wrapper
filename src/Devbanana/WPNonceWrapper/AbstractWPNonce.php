@@ -17,9 +17,39 @@ namespace Devbanana\WPNonceWrapper;
  */
 abstract class AbstractWPNonce {
 
+		/**
+		 * The generated nonce.
+		 *
+		 * @var string
+		 */
 		protected $nonce;
+
+		/**
+		 * The given action for the nonce.
+		 *
+		 * @var string
+		 */
 		protected $action;
+
+		/**
+		 * The name for this nonce.
+		 *
+		 * Defaults to _wpnonce.
+		 *
+		 * @var string
+		 */
 		protected $name;
+
+		/**
+		 * The output of this nonce.
+		 *
+		 * If this is for a URL or field, then the output is the appropriate URL or field.
+		 *
+		 * If neither, then the output is the nonce.
+		 *
+		 * @var string
+		 */
+		protected $output;
 
 		/**
 		 * Constructor for AbstractWPNonce.
@@ -138,6 +168,35 @@ abstract class AbstractWPNonce {
 		 */
 		public function setName( $name ) {
 				$this->name = $name;
+		}
+
+		/**
+		 * Get the output for this nonce.
+		 *
+		 * @return string The appropriate output.
+		 */
+		public function getOutput() {
+				return $this->output;
+		}
+
+		/**
+		 * Set the output.
+		 *
+		 * @param string $output The output to set.
+		 */
+		public function setOutput( $output ) {
+				$this->output = $output;
+		}
+
+		/**
+		 * Convert to string.
+		 *
+		 * Just print out the output.
+		 *
+		 * @return string The output of the nonce.
+		 */
+		public function __toString() {
+				return $this->output;
 		}
 
 }

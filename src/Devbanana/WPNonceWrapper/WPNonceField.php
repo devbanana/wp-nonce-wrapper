@@ -42,7 +42,7 @@ class WPNonceField extends AbstractWPNonce {
 				}
 
 				$instance->setAction( $action );
-				$instance->setName( $instance->getName() );
+				$instance->setName( $name );
 				return $instance;
 		}
 

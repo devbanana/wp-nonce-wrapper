@@ -8,8 +8,8 @@
  * file that was distributed with this source code.
  */
 
-require_once '../src/Devbanana/WPNonceWrapper/AbstractWPNonce.php';
-require_once '../src/Devbanana/WPNonceWrapper/WPNonce.php';
+require_once dirname(__FILE__) . '/../src/Devbanana/WPNonceWrapper/AbstractWPNonce.php';
+require_once dirname(__FILE__) . '/../src/Devbanana/WPNonceWrapper/WPNonce.php';
 require_once 'functions.php';
 
 use PHPUnit\Framework\TestCase;
@@ -36,6 +36,15 @@ class WPNonceTest extends TestCase
 		public function testGenerateHasName() {
 				$nonce = WPNonce::generate( 'test' );
 		$this->assertEquals( '_wpnonce', $nonce->getName() );
+		}
+
+		public function testImport() {
+				$_REQUEST = array(
+						'_wpnonce' => 'this-is-a-nonce',
+				);
+				$nonce = WPNonce::import( 'test' );
+				$this->assertInstanceOf( 'Devbanana\\WPNonceWrapper\\WPNonce', $nonce );
+				$this->assertEquals( 'this-is-a-nonce', $nonce->getNonce() );
 		}
 
 		public function testVerifyCalledWithNonce() {

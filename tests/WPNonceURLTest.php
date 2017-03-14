@@ -8,8 +8,8 @@
  * file that was distributed with this source code.
  */
 
-require_once '../src/Devbanana/WPNonceWrapper/AbstractWPNonce.php';
-require_once '../src/Devbanana/WPNonceWrapper/WPNonceURL.php';
+require_once dirname(__FILE__) . '/../src/Devbanana/WPNonceWrapper/AbstractWPNonce.php';
+require_once dirname(__FILE__) . '/../src/Devbanana/WPNonceWrapper/WPNonceURL.php';
 require_once 'functions.php';
 
 use PHPUnit\Framework\TestCase;

@@ -77,6 +77,28 @@ abstract class AbstractWPNonce {
 		}
 
 		/**
+		 * Verify the nonce on an admin screen.
+		 *
+		 * Wraps check_admin_referer().
+		 *
+		 * @return bool Whether the nonce is given and is valid.
+		 */
+		public function verifyAdmin() {
+				return check_admin_referer( $this->getAction(), $this->getName() );
+		}
+
+		/**
+		 * Verify the nonce in an ajax request.
+		 *
+		 * Wraps check_ajax_referer().
+		 *
+		 * @return bool Whether the nonce is given and is valid.
+		 */
+		public function verifyAjax( $die = true ) {
+				return check_ajax_referer( $this->getAction(), $this->getName(), $die );
+		}
+
+		/**
 		 * Import current nonce for verification.
 		 *
 		 * You'd use this method on the page where you want to verify the nonce.
@@ -103,6 +125,7 @@ abstract class AbstractWPNonce {
 				}
 				$instance->setAction( $action );
 				$instance->setName( $name );
+				return $instance;
 		}
 
 		/**

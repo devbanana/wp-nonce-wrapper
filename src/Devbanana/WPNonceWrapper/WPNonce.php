@@ -32,6 +32,7 @@ class WPNonce extends AbstractWPNonce {
 				$instance = new static();
 				$instance->setNonce( wp_create_nonce( $action ) );
 				$instance->setAction( $action );
+				$instance->setName( '_wpnonce' );
 				$instance->setOutput( $instance->getNonce() );
 				return $instance;
 		}

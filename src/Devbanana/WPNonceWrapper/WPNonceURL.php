@@ -28,7 +28,7 @@ class WPNonceURL extends AbstractWPNonce {
 		 * @param string $action (optional) The action for this nonce. Defaults to -1.
 		 * @param string $name   (optional) The name of the nonce used in the URL. Defaults to _wpnonce.
 		 *
-		 * @return Devbanana\WPNonceWrapper\WPNonce
+		 * @return Devbanana\WPNonceWrapper\WPNonceURL
 		 */
 		public static function generate( $url, $action = -1, $name = '_wpnonce' ) {
 				$instance = new static();

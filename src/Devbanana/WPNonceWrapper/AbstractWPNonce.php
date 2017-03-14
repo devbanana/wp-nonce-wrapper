@@ -15,7 +15,7 @@ namespace Devbanana\WPNonceWrapper;
  *
  * @author Brandon Olivares
  */
-abstract class AbstractWPNonce implements WPNonceWrapperInterface {
+abstract class AbstractWPNonce {
 
 		protected $nonce;
 		protected $action;

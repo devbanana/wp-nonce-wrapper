@@ -35,13 +35,14 @@ class WPNonceURL extends AbstractWPNonce {
 				$instance->setOutput( wp_nonce_url( $url, $action, $name ) );
 
 				// Get the nonce from the URL
-				$matches = preg_match( '/' . preg_quote($name) . '=(.+)$/', $this->getOutput(), $matches );
+				$matches = preg_match( '/' . preg_quote($name) . '=(.+)$/', $instance->getOutput(), $matches );
 				if ( $matches ) {
 						$instance->setNonce( $matches[1] );
 				}
 
 				$instance->setAction( $action );
 				$instance->setOutput( $instance->getNonce() );
+				return $instance;
 		}
 
 }

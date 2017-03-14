@@ -36,13 +36,14 @@ class WPNonceField extends AbstractWPNonce {
 				$instance->setOutput( wp_nonce_field( $action, $name, $referer, $echo ) );
 
 				// Get the nonce from the field
-				$matches = preg_match( '/value="([^"]+)"/', $this->getOutput(), $matches );
+				$matches = preg_match( '/value="([^"]+)"/', $instance->getOutput(), $matches );
 				if ( $matches ) {
 						$instance->setNonce( $matches[1] );
 				}
 
 				$instance->setAction( $action );
 				$instance->setOutput( $instance->getNonce() );
+				return $instance;
 		}
 
 }
